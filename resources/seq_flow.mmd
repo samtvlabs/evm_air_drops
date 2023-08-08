@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant M as Main
+    participant A as Airdrop
+    participant D as Database
+    M->>A: create airdrop(evm_chain, number_of_tokens)
+    A-->>M: return airdrop
+    M->>D: add_airdrop(airdrop)
+    D-->>M: confirmation
+    M->>A: airdrop_tokens()
+    A-->>M: confirmation
+    M->>D: add_airdrop(airdrop)
+    D-->>M: confirmation
+    M->>D: get_all_airdrops()
+    D-->>M: return list of airdrops

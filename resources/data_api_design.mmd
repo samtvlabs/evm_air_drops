@@ -1,0 +1,17 @@
+classDiagram
+    class Airdrop{
+        +str evm_chain
+        +int number_of_tokens
+        +bool is_successful
+        +datetime timestamp
+        +__init__(evm_chain: str, number_of_tokens: int)
+        +airdrop_tokens()
+        +cancel_airdrop()
+    }
+    class Database{
+        +Session session
+        +__init__()
+        +add_airdrop(airdrop: Airdrop)
+        +get_all_airdrops() : List[Airdrop]
+    }
+    Airdrop "1" -- "0..*" Database: stores
